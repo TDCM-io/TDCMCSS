@@ -1,0 +1,133 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+/// Event wrapper
+/// @author Harry Roberts
+/// @param {Bool} $self [false] - Whether or not to include current selector
+/// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+@mixin on-event($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus,
+    &:focus-within {
+      @content;
+    }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus,
+    &:focus-within {
+      @content;
+    }
+  }
+}
+
+/// Make a context based selector a little more friendly
+/// @author Kitty Giraudel
+/// @param {String} $context
+@mixin when-inside($context) {
+  #{$context} & {
+    @content;
+  }
+}
+
+@mixin overlay() {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/// A font-face mixin that allows for multiple file formats
+/// @author Szymon Ruszkiewicz
+/// @param {String} $font-family - The name of the font
+/// @param {String} $font-path - The path to the font file
+/// @param {Number} $font-weight - The weight of the font
+/// @param {List} $file-formats - The file formats to include
+/// @link https://css-tricks.com/snippets/css/using-font-face/
+@mixin font-face($font-family, $font-path, $font-weight, $file-formats: woff2 woff ttf eot svg) {
+  @font-face {
+    font-family: $font-family;
+    src: url("#{$font-path}.#{$file-formats[0]}") format("#{$file-formats[0]}");
+    font-weight: $font-weight;
+    font-style: normal;
+    font-display: swap;
+  }
+  @each $format in $file-formats {
+    @if ($format != $file-formats(0)) {
+      @font-face {
+        font-family: $font-family;
+        src: url("#{$font-path}.#{$format}") format("#{$format}");
+        font-weight: $font-weight;
+        font-style: normal;
+        font-display: swap;
+      }
+    }
+  }
+}
+
+
+// -----------------------------------------------------------------------------
+// MEDIA QUERY MANAGER
+// -----------------------------------------------------------------------------
+
+/*
+0 - 600px:          Phone
+600- 900px:         Tablet Portrait
+900 - 1200px:       Tablet Landscape
+(1200 - 1800px)     is where our normal styles apply
+1800px + :          Big Desktop
+*/
+
+/*
+$breakpoint argument choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+ORDER: BASE + Typography > general layout + grid > page layout > components
+*/
+
+// 1em = 16px
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone-vsmall {
+     @media only screen and (max-width: em(390)) {
+        @content;
+     } //390px
+  }
+
+  @if $breakpoint == phone-small {
+     @media only screen and (max-width: em(450)) {
+        @content;
+     } //450px
+  }
+
+  @if $breakpoint == phone {
+     @media only screen and (max-width: em(600)) {
+        @content;
+     } //600px
+  }
+
+  @if $breakpoint == tab-port {
+     @media only screen and (max-width: em(900)) {
+        @content;
+     } //900px
+  }
+
+  @if $breakpoint == tab-land {
+     @media only screen and (max-width: em(1200)) {
+        @content;
+     } //1200px
+  }
+
+  @if $breakpoint == big-desktop {
+     @media only screen and (min-width: em(1800)) {
+        @content;
+     } //1800px
+  }
+}

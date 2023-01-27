@@ -1,0 +1,116 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the grid of the site/application.
+// -----------------------------------------------------------------------------
+@mixin clearFix{
+    &::after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+$grid-width: rem(1824);
+$gutter-vertical: rem(128);
+$gutter-vertical-small: rem(96);
+$gutter-horizontal: rem(96);
+
+.row{
+    max-width: $grid-width;
+    margin: 0 auto;
+
+    &:not(:last-child){
+        margin-bottom: $gutter-vertical;
+        @include respond(tab-port){
+            margin-bottom: $gutter-vertical-small;
+        }
+    }
+    @include respond(tab-port){
+        max-width: rem(800);
+        padding: 0 rem(32);
+    }
+
+    @include clearFix();
+    [class^="col-"]{
+        float: left;
+        &:not(:last-child){
+            margin-right: $gutter-horizontal;
+
+            @include respond(tab-port){
+                margin-right: 0;
+                margin-bottom: $gutter-vertical-small;
+            }
+        }
+        @include respond(tab-port){
+            width: 100%!important;
+        }
+    }
+    .col-1-of-2{
+        width: calc((100%  - #{$gutter-horizontal})/2);
+    }
+    .col-1-of-3{
+        width: calc((100%  - 2 * #{$gutter-horizontal})/3);
+    }
+    .col-2-of-3{
+        width: calc(2*((100%  - 2 * #{$gutter-horizontal})/3) + #{$gutter-horizontal});
+    }
+
+    .col-1-of-4{
+        width: calc((100% - 3 * #{$gutter-horizontal})/4);
+    }
+
+    .col-2-of-4{
+        width: calc(2*((100% - 3 * #{$gutter-horizontal})/4) + #{$gutter-horizontal});
+    }
+
+    .col-3-of-4{
+        width: calc(3*((100% - 3 * #{$gutter-horizontal})/4) + 2*#{$gutter-horizontal});
+    }
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: rem(40);
+    width: min(100% - rem(40), rem(1000));
+    margin-inline: auto;
+
+    @include respond(tab-port) {
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: auto;
+    }
+
+    &__main, &__sidebar {
+        padding: rem(40);
+    }
+
+    &__main {
+        background-color: $color-blue-dark;
+
+        @include respond(tab-port) {
+            background-color: $color-green;
+        }
+
+        @include respond(tab-land) {
+            background-color: $color-orange-light;
+        }
+    }
+
+    &__sidebar {
+        text-align: center;
+        
+        @include respond(tab-port) {
+            text-align: left;
+        }
+    }
+    
+    &__widget {
+        background-color: $color-purple-dark;
+        padding: rem(16);
+
+        &--green {
+            @extend .grid__widget;
+            background-color: $color-green-dark;
+        }
+    }
+}

@@ -1,0 +1,20 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+
+//Button
+.btn {
+   display: block;
+   color: $color-primary;
+   border-color: transparent;
+ 
+   &:disabled, 
+   &.disabled {  
+     pointer-events: none;
+   }
+ }
+ 
+ //Alternate Button
+ .btn.alt {
+   color: $color-secondary;
+ }
