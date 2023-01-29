@@ -1,7 +1,9 @@
 // -----------------------------------------------------------------------------
 // This file contains all application-wide Sass functions.
-// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------\
+
 @use 'sass:math';
+@use 'sass:map';
 
 /// Native `url(..)` function wrapper
 /// @param {String} $base - base URL for the asset
@@ -93,6 +95,18 @@
   @return ($quotient + $remainder) * $sign;
 }
 
+/// It makes the value negative.
+@function negativify-map($map) {
+  $result: ();
+
+  @each $key, $value in $map {
+    @if $key != 0 {
+      $result: map.merge($result, ('-' + $key: (-$value)));
+    }
+  }
+
+  @return $result;
+}
 
 /// 制作z字行下划线
 /// @param {String} $index
@@ -109,3 +123,5 @@
       @return $start_color
   }
 }
+
+

@@ -1,0 +1,13 @@
+.warning-box {
+    border-radius: 0.25rem !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;   
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+    background-color: $color-red-light !important;
+    color: $text-color !important;
+
+    &--text-red-darker {
+        color: $color-red-dark !important;
+    }
+}

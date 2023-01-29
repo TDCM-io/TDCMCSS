@@ -2,12 +2,15 @@
 // This file contains all application-wide Sass mixins.
 // -----------------------------------------------------------------------------
 
+@use 'sass:math';
+
 /// Event wrapper
 /// @author Harry Roberts
 /// @param {Bool} $self [false] - Whether or not to include current selector
 /// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
 @mixin on-event($self: false) {
   @if $self {
+
     &,
     &:hover,
     &:active,
@@ -15,7 +18,10 @@
     &:focus-within {
       @content;
     }
-  } @else {
+  }
+
+  @else {
+
     &:hover,
     &:active,
     &:focus,
@@ -57,8 +63,9 @@
     font-style: normal;
     font-display: swap;
   }
+
   @each $format in $file-formats {
-    @if ($format != $file-formats(0)) {
+    @if ($format !=$file-formats(0)) {
       @font-face {
         font-family: $font-family;
         src: url("#{$font-path}.#{$format}") format("#{$format}");
@@ -95,39 +102,125 @@ ORDER: BASE + Typography > general layout + grid > page layout > components
 // 1em = 16px
 
 @mixin respond($breakpoint) {
-  @if $breakpoint == phone-vsmall {
-     @media only screen and (max-width: em(390)) {
-        @content;
-     } //390px
+  @if $breakpoint ==phone-vsmall {
+    @media only screen and (max-width: em(390)) {
+      @content;
+    }
+
+    //390px
   }
 
-  @if $breakpoint == phone-small {
-     @media only screen and (max-width: em(450)) {
-        @content;
-     } //450px
+  @if $breakpoint ==phone-small {
+    @media only screen and (max-width: em(450)) {
+      @content;
+    }
+
+    //450px
   }
 
-  @if $breakpoint == phone {
-     @media only screen and (max-width: em(600)) {
-        @content;
-     } //600px
+  @if $breakpoint ==phone {
+    @media only screen and (max-width: em(600)) {
+      @content;
+    }
+
+    //600px
   }
 
-  @if $breakpoint == tab-port {
-     @media only screen and (max-width: em(900)) {
-        @content;
-     } //900px
+  @if $breakpoint ==tab-port {
+    @media only screen and (max-width: em(900)) {
+      @content;
+    }
+
+    //900px
   }
 
-  @if $breakpoint == tab-land {
-     @media only screen and (max-width: em(1200)) {
-        @content;
-     } //1200px
+  @if $breakpoint ==tab-land {
+    @media only screen and (max-width: em(1200)) {
+      @content;
+    }
+
+    //1200px
   }
 
-  @if $breakpoint == big-desktop {
-     @media only screen and (min-width: em(1800)) {
-        @content;
-     } //1800px
+  @if $breakpoint ==big-desktop {
+    @media only screen and (min-width: em(1800)) {
+      @content;
+    }
+
+    //1800px
+  }
+}
+
+// Grid
+
+@mixin make-grid-columns($i: 1, $list: '.col') {
+  @for $i from 1 through $grid-columns {
+    $list: '#{$list}, .col-#{$i}';
+  }
+
+  #{$list} {
+    position: relative;
+    width: 100%;
+    padding-left: math.div($grid-gutter, 2);
+    padding-right: math.div($grid-gutter, 2);
+  }
+}
+
+@mixin make-grid-columns-equal() {
+  .col {
+    flex: 1 0 0%;
+  }
+}
+
+@mixin loop-grid-columns($columns) {
+  @for $i from 1 through $columns {
+    @if ($columns ==12) {
+      .col-#{$i} {
+        flex: 0 0 math.percentage(math.div($i, $columns));
+        max-width: math.percentage(math.div($i, $columns));
+      }
+
+      .col-offset-#{$i} {
+        margin-left: math.percentage(math.div($i, $columns));
+      }
+    }
+
+    @else {
+      .cols-#{$columns}>.col-#{$i} {
+        flex: 0 0 math.percentage(math.div($i, $columns));
+        max-width: math.percentage(math.div($i, $columns));
+      }
+
+      .cols-#{$columns}>.col-offset-#{$i} {
+        margin-left: math.percentage(math.div($i, $columns));
+      }
+    }
+  }
+}
+
+// Clearfix
+
+@mixin clearfix() {
+
+  &::before,
+  &::after {
+    content: ' '; // 1
+    display: table; // 2
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+// Colors
+
+@mixin generate-colors($class-prefix, $property, $colors: $status-color-map) {
+
+  @each $name,
+  $color in $colors {
+    .#{$class-prefix + '-' + $name} {
+      #{$property}: $color !important;
+    }
   }
 }

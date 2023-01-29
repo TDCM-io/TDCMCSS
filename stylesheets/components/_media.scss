@@ -1,0 +1,35 @@
+.media {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .media-body {
+    flex: 1;
+  }
+  
+  .media-left {
+    padding-right: 1rem;
+  }
+  
+  .media-right {
+    padding-left: 1rem;
+  }
+  
+  .media-heading {
+    margin-top: 0;
+    margin-bottom: .5rem;
+  }
+  
+  .media-content {
+    font-size: .875rem;
+  }
+  
+  .avatar {
+    display: inline-block;
+    border-radius: 100%;
+    overflow: hidden;
+  
+    img {
+      display: block;
+    }
+  }

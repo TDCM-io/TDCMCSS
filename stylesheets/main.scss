@@ -5,7 +5,8 @@
   'abstracts/colors',
   'abstracts/functions',
   'abstracts/mixins',
-  'abstracts/variables';
+  'abstracts/variables',
+  'abstracts/utilities';
 
 // 2. Vendors
 @import
@@ -25,14 +26,18 @@
   'layout/grid',
   'layout/navigation',
   'layout/sidebar',
+  'layout/table',
   'layout/footer';
 
 // 5. Components
 @import
+  'components/box',
   'components/button',
   'components/carousel',
   'components/cover',
-  'components/dropdown';
+  'components/dropdown',
+  'components/media',
+  'components/warning-box';
 
 // 6. Page-specific styles
 @import
@@ -42,4 +47,5 @@
 // 7. Themes
 @import
   'themes/admin',
+  'themes/dark',
   'themes/default';
