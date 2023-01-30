@@ -1,17 +1,22 @@
+// -----------------------------------------------------------------------------
+// When having several themes, this file contains everything related to the
+// admin one.
+// -----------------------------------------------------------------------------
+
 @use 'sass:color';
 
 .theme-dark {
   // color
-  $gray-darker: #262626;
-  $gray-dark: #2d2d2d;
-  $gray: #383838;
-  $gray-light: #5c5c5c;
-  $gray-lighter: #7f7f7f;
+  $color-gray-darker: #262626;
+  $color-gray-dark: #2d2d2d;
+  $color-gray: #383838;
+  $color-gray-light: #5c5c5c;
+  $color-gray-lighter: #7f7f7f;
   $color-inverted: #fff;
   // typography
-  $text-color: $gray-lighter;
+  $text-color: $color-gray-lighter;
   // table
-  $table-border-color: $gray-dark;
+  $table-border-color: $color-gray-dark;
   $table-head-bg-color: #242424;
   $table-striped-bg-color: #242424;
   $table-hover-bg-color: #242424;
@@ -42,6 +47,11 @@
   h5,
   h6 {
     color: #fff;
+  }
+
+  .warning-box {
+    background-color: $color-orange-light;
+    border-color: #2d2d2d;
   }
 
   .table {

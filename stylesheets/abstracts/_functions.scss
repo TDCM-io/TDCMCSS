@@ -9,8 +9,7 @@
 /// @param {String} $base - base URL for the asset
 /// @param {String} $type - asset type folder (e.g. `fonts/`)
 /// @param {String} $path - asset path
-/// @return {Url}
-/// 
+/// @return {Url} /
 @function asset($base, $type, $path) {
   @return url($base + $type + $path);
 }
@@ -19,8 +18,7 @@
 /// @param {String} $path - image path
 /// @param {String} $base [$base-url] - base URL
 /// @return {Url}
-/// @require $base-url
-/// 
+/// @require $base-url /
 @function image($path, $base: $base-url) {
   @return asset($base, 'images/', $path);
 }
@@ -29,8 +27,7 @@
 /// @param {String} $path - font path
 /// @param {String} $base [$base-url] - base URL
 /// @return {Url}
-/// @require $base-url
-/// 
+/// @require $base-url /
 @function font($path, $base: $base-url) {
   @return asset($base, 'fonts/', $path);
 }
@@ -38,8 +35,7 @@
 
 /// Returns REM value based on a given pixel size
 /// @param {Length} $pxsize - pixel size
-/// @return {Length}
-/// 
+/// @return {Length} /
 @function rem($pxsize) {
   @if math.is-unitless($pxsize) {
     @return math.div($pxsize, 16) + rem;
@@ -52,8 +48,7 @@
 
 /// Returns EM value based on a given pixel size
 /// @param {Length} $pxsize - pixel size
-/// @return {Length}
-/// 
+/// @return {Length} /
 @function em($pxsize) {
   @if math.is-unitless($pxsize) {
     @return math.div($pxsize, 16) + em;
@@ -63,13 +58,11 @@
   }
 }
 
-
 /// Returns a division of two numbers
 /// @param {Number} $dividend - dividend
 /// @param {Number} $divisor - divisor
 /// @param {Number} $precision [10] - precision
-/// @return {Number}
-/// 
+/// @return {Number} /
 @function divide($dividend, $divisor, $precision: 10) {
   $sign: if($dividend > 0 and $divisor > 0, 1, -1);
   $dividend: abs($dividend);
@@ -95,7 +88,8 @@
   @return ($quotient + $remainder) * $sign;
 }
 
-/// It makes the value negative.
+/// function negativify-map for mapping negative values
+/// @param {Map} $map
 @function negativify-map($map) {
   $result: ();
 
@@ -108,7 +102,7 @@
   @return $result;
 }
 
-/// 制作z字行下划线
+/// function mixcolor for gradient
 /// @param {String} $index
 /// @param {Number} $count
 /// @param {Number} $height

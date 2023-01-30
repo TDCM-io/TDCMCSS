@@ -102,7 +102,7 @@ ORDER: BASE + Typography > general layout + grid > page layout > components
 // 1em = 16px
 
 @mixin respond($breakpoint) {
-  @if $breakpoint ==phone-vsmall {
+  @if $breakpoint == phone-vsmall {
     @media only screen and (max-width: em(390)) {
       @content;
     }
@@ -110,7 +110,7 @@ ORDER: BASE + Typography > general layout + grid > page layout > components
     //390px
   }
 
-  @if $breakpoint ==phone-small {
+  @if $breakpoint == phone-small {
     @media only screen and (max-width: em(450)) {
       @content;
     }
@@ -118,7 +118,7 @@ ORDER: BASE + Typography > general layout + grid > page layout > components
     //450px
   }
 
-  @if $breakpoint ==phone {
+  @if $breakpoint == phone {
     @media only screen and (max-width: em(600)) {
       @content;
     }
@@ -126,7 +126,7 @@ ORDER: BASE + Typography > general layout + grid > page layout > components
     //600px
   }
 
-  @if $breakpoint ==tab-port {
+  @if $breakpoint == tab-port {
     @media only screen and (max-width: em(900)) {
       @content;
     }
@@ -134,7 +134,7 @@ ORDER: BASE + Typography > general layout + grid > page layout > components
     //900px
   }
 
-  @if $breakpoint ==tab-land {
+  @if $breakpoint == tab-land {
     @media only screen and (max-width: em(1200)) {
       @content;
     }
@@ -142,7 +142,7 @@ ORDER: BASE + Typography > general layout + grid > page layout > components
     //1200px
   }
 
-  @if $breakpoint ==big-desktop {
+  @if $breakpoint == big-desktop {
     @media only screen and (min-width: em(1800)) {
       @content;
     }
@@ -151,8 +151,12 @@ ORDER: BASE + Typography > general layout + grid > page layout > components
   }
 }
 
-// Grid
-
+/// Make a grid column
+/// @param {Number} $grid-columns - The number of columns
+/// @param {Number} $grid-gutter - The gutter width
+/// @param {Number} $i - The current column
+/// @param {String} $list - The list of columns
+/// @link https://css-tricks.com/snippets/sass/looping-through-lists/
 @mixin make-grid-columns($i: 1, $list: '.col') {
   @for $i from 1 through $grid-columns {
     $list: '#{$list}, .col-#{$i}';
@@ -166,15 +170,21 @@ ORDER: BASE + Typography > general layout + grid > page layout > components
   }
 }
 
+/// Make grid columns equal
 @mixin make-grid-columns-equal() {
   .col {
     flex: 1 0 0%;
   }
 }
 
+/// Loop through grid columns
+/// @param {Number} $columns - The number of columns
+/// @param {Number} $i - The current column
+/// @param {String} $list - The list of columns
+/// @link https://css-tricks.com/snippets/sass/looping-through-lists/
 @mixin loop-grid-columns($columns) {
   @for $i from 1 through $columns {
-    @if ($columns ==12) {
+    @if ($columns == 12) {
       .col-#{$i} {
         flex: 0 0 math.percentage(math.div($i, $columns));
         max-width: math.percentage(math.div($i, $columns));
@@ -188,7 +198,7 @@ ORDER: BASE + Typography > general layout + grid > page layout > components
     @else {
       .cols-#{$columns}>.col-#{$i} {
         flex: 0 0 math.percentage(math.div($i, $columns));
-        max-width: math.percentage(math.div($i, $columns));
+        // max-width: math.percentage(math.div($i, $columns));
       }
 
       .cols-#{$columns}>.col-offset-#{$i} {
@@ -198,8 +208,8 @@ ORDER: BASE + Typography > general layout + grid > page layout > components
   }
 }
 
-// Clearfix
-
+/// mixin clearfix for clearing floats
+/// @link https://css-tricks.com/snippets/css/clear-fix/
 @mixin clearfix() {
 
   &::before,
@@ -213,8 +223,10 @@ ORDER: BASE + Typography > general layout + grid > page layout > components
   }
 }
 
-// Colors
-
+/// mixin for generating color classes
+/// @param {String} $class-prefix - The prefix for the class name
+/// @param {String} $property - The property to apply the color to
+/// @param {Map} $colors - The map of colors to use
 @mixin generate-colors($class-prefix, $property, $colors: $status-color-map) {
 
   @each $name,

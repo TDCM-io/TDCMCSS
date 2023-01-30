@@ -1,3 +1,7 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the box component.
+// -----------------------------------------------------------------------------
+
 // Basic box
 .box {
     padding: .5rem 1rem;
@@ -28,16 +32,16 @@
         border-bottom-right-radius: $boxes-box-border-radius !important;
       }
   
-      &.box-header {
+      &__header {
         background-color: $box-heading-bg-color;
       }
   
-      &.box-body {
+      &__body {
         padding-top: 1rem;
         padding-bottom: 1rem;
       }
   
-      &.box-footer {
+      &__footer {
         background-color: $box-footer-bg-color;
       }
     }

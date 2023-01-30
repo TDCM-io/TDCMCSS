@@ -1,10 +1,13 @@
 $text-color:               hsl(0, 0%, 13%) !default;
+$text-color-tdcm:          hsl(216, 17%, 32%) !default;
 
-$color-primary:            hsl(340, 82%, 52%) !default;
-$color-primary-light:      hsl(339, 81%, 85%) !default;
-$color-primary-dark:       hsl(337, 78%, 43%) !default;
+$color-primary-light:      hsl(196, 79%, 71%) !default;
+$color-primary:            hsl(196, 79%, 61%) !default;
+$color-primary-dark:       hsl(196, 79%, 51%) !default;
 
-$color-secondary:          hsl(340, 100%, 63%) !default;
+$color-secondary-light:    hsl(216, 17%, 42%) !default;
+$color-secondary:          hsl(216, 17%, 32%) !default;
+$color-secondary-dark:     hsl(216, 17%, 22%) !default;
 
 $color-default:            hsl(202, 15%, 75%) !default;
 $color-info:               hsl(194, 63%, 56%) !default;
@@ -18,7 +21,7 @@ $color-grey-light:         hsl(0, 0%, 93%) !default;
 $color-grey:               hsl(0, 0%, 60%) !default;
 $color-grey-dark:          hsl(0, 0%, 27%) !default;
 
-// USA names for grey
+// USA names for gray
 $color-gray-light:         hsl(0, 0%, 93%) !default;
 $color-gray:               hsl(0, 0%, 60%) !default;
 $color-gray-dark:          hsl(0, 0%, 27%) !default;
@@ -26,12 +29,12 @@ $color-gray-dark:          hsl(0, 0%, 27%) !default;
 $color-white:              hsl(0, 0%, 100%) !default;
 $color-white-dark:         hsl(0, 0%, 87%) !default;
 
-$color-black:              hsl(0, 0%, 13%) !default;
 $color-black-light:        hsl(0, 0%, 46%) !default;
+$color-black:              hsl(0, 0%, 13%) !default;
 $color-black-mat:          hsl(0, 0%, 8%) !default;
 
-$color-green:              hsl(140, 49%, 55%) !default;
 $color-green-light:        hsl(111, 55%, 64%) !default;
+$color-green:              hsl(140, 49%, 55%) !default;
 $color-green-dark:         hsl(160, 64%, 43%) !default;
 
 $color-brown:              hsl(16, 25%, 53%) !default;
