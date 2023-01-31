@@ -4,32 +4,6 @@
 
 @use 'sass:color';
 
-/// Mixin for outline button
-@mixin outline () {
-    background-color: transparent !important;
-    @each $name, $color in $status-color-map {
-      &.#{$name} {
-        color: $color !important;
-        border-color: $color !important;
-
-        &:hover {
-          color: $color-white !important;
-          background-color: $color !important;
-        }
-
-        &:focus {
-          color: $color-white !important;
-          background-color: $color !important;
-        }
-
-        &:active {
-          color: $color-white !important;
-          background-color: $color !important;
-        }
-      }
-    }
-}
-
 .btn {
   display: inline-block;
   padding: .25rem .75rem;
@@ -69,7 +43,7 @@
     }
   }
 
-  &--link {
+  &_link {
     color: $color-primary !important;
     background-color: transparent !important;
     border-color: transparent !important;
@@ -94,22 +68,39 @@
     }
   }
 
-  &--outline {
-    @include outline();
+  &_outline {
+    background-color: transparent !important;
+
+    @each $name, $color in $status-color-map {
+      &.#{$name} {
+        color: $color !important;
+        border-color: $color !important;
+
+        &:hover {
+          color: $color-white !important;
+          background-color: $color !important;
+        }
+
+        &:focus {
+          color: $color-white !important;
+          background-color: $color !important;
+        }
+
+        &:active {
+          color: $color-white !important;
+          background-color: $color !important;
+        }
+      }
+    }
   }
 
-  &--fluid {
+  &_fluid {
     display: block;
     width: 100%;
   }
 
-  &--pill {
+  &_pill {
     border-radius: 9999px !important;
-
-    &--outline {
-      @include outline();
-      border-radius: 9999px !important;
-    }
   }
 }
 
@@ -137,7 +128,7 @@
     }
   }
 
-  &__vertical {
+  &_vertical {
     > .btn {
       position: relative;
       display: block;

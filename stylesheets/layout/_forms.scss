@@ -29,67 +29,75 @@ input[type='file'] {
   label {
     display: inline-block;
     margin-bottom: .25rem;
-  }
+  }  
   
-  .form-control {
-    display: block;
-    width: 100%;
-    min-height: 2.25rem;
-    padding: .25rem .5rem;
-    border: $input-border-width solid $input-border-color;
-    border-radius: $input-border-radius;
-    background-color: $input-bg-color;
-    background-clip: padding-box;
-    font-size: $input-font-size;
-    line-height: $input-line-height;
-    color: $input-text-color;
-  
-    &:focus {
-      outline: 0;
-      border-color: $input-border-color-focus;
-      box-shadow: 0 0 0 .25rem rgba($color-primary, .25);
+  .form {
+    // Label + Input
+    &__group {
+      margin-bottom: 1rem;
     }
-  
-    &[disabled] {
-      cursor: not-allowed;
-    }
-  
-    &:disabled,
-    &[readonly] {
-      background-color: #e9ecef;
-      opacity: 1;
-    }
-  }
-  
-  .form-label {
-    padding-top: .25rem;
-    padding-bottom: .25rem;
-    margin-bottom: 0;
-  }
-  
-  // Label + Input
-  .form-group {
-    margin-bottom: 1rem;
-  }
-  
-  .form-inline {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-  
-    input[type='file'],
-    .form-group {
+
+    &__inline {
       display: flex;
-      flex: 0 0 auto;
       flex-flow: row wrap;
       align-items: center;
-      margin-right: 1rem;
+    
+      input[type='file'],
+      &__group {
+        display: flex;
+        flex: 0 0 auto;
+        flex-flow: row wrap;
+        align-items: center;
+        margin-right: 1rem;
+      }
+    
+      &__control {
+        display: inline-block;
+        width: auto;
+        vertical-align: middle;
+      }
     }
-  
-    .form-control {
-      display: inline-block;
-      width: auto;
-      vertical-align: middle;
+
+    &__label {
+      padding-top: .25rem;
+      padding-bottom: .25rem;
+      margin-bottom: 0;
+    }
+
+    &__control {
+      display: block;
+      width: 100%;
+      min-height: 2.25rem;
+      padding: .25rem .5rem;
+      border: $input-border-width solid $input-border-color;
+      border-radius: $input-border-radius;
+      background-color: $input-bg-color;
+      background-clip: padding-box;
+      font-size: $input-font-size;
+      line-height: $input-line-height;
+      color: $input-text-color;
+    
+      &:focus {
+        outline: 0;
+        border-color: $input-border-color-focus;
+        box-shadow: 0 0 0 .25rem rgba($color-primary, .25);
+      }
+    
+      &[disabled] {
+        cursor: not-allowed;
+      }
+    
+      &:disabled,
+      &[readonly] {
+        background-color: #e9ecef;
+        opacity: 1;
+      }
+    }
+
+    &__text {
+      margin-top: .25rem;
+      font-size: .875em;
+      color: $form-text-color;
     }
   }
   
@@ -101,7 +109,7 @@ input[type='file'] {
     margin-bottom: .25rem;
     padding-left: 1.5rem;
   
-    label {
+    &__label {
       position: relative;
       display: inline-block;
       min-height: 1.5rem;
@@ -110,11 +118,11 @@ input[type='file'] {
       cursor: pointer;
     }
   
-    &.disabled label {
+    &_disabled label {
       cursor: not-allowed;
     }
   
-    &.inline {
+    &__inline {
       display: inline-block;
       margin-top: 0;
       margin-bottom: 0;
@@ -132,15 +140,11 @@ input[type='file'] {
   }
   
   fieldset[disabled] {
-    .form-control,
+    .form__control,
     .checkbox label,
     .radio label {
       cursor: not-allowed;
     }
   }
   
-  .form-text {
-    margin-top: .25rem;
-    font-size: .875em;
-    color: $form-text-color;
-  }
+  

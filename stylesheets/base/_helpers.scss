@@ -53,3 +53,13 @@
   position: absolute;
   width: 1px;
 }
+
+
+/**
+ * Make the element overflow its container
+**/
+.overflow {
+  min-height: .01%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}

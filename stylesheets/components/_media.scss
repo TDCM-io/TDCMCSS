@@ -5,30 +5,29 @@
 .media {
     display: flex;
     align-items: flex-start;
-  }
   
-  .media-body {
+  &__body {
     flex: 1;
   }
   
-  .media-left {
+  &__left {
     padding-right: 1rem;
   }
   
-  .media-right {
+  &__right {
     padding-left: 1rem;
   }
   
-  .media-heading {
+  &__heading {
     margin-top: 0;
     margin-bottom: .5rem;
   }
   
-  .media-content {
+  &__content {
     font-size: .875rem;
   }
   
-  .avatar {
+  &__avatar {
     display: inline-block;
     border-radius: 100%;
     overflow: hidden;
@@ -37,3 +36,4 @@
       display: block;
     }
   }
+}

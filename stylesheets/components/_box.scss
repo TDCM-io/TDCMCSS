@@ -54,7 +54,7 @@
       margin-bottom: 0; // Eliminate nested boxes margin-bottom
     }
   
-    &.transparent {
+    &-transparent {
       background-color: transparent;
   
       .box {
@@ -62,7 +62,7 @@
       }
     }
   
-    &.inverted {
+    &-inverted {
       color: $color-white;
       background-color: $color-inverted;
       border-color: $box-border-inverted-color;
@@ -82,20 +82,20 @@
       border-width: 1px;
       border-radius: $box-border-radius;
   
-      &.box-header {
+      &__header {
         background-color: transparent;
         margin-bottom: 0;
         border-width: 0;
         border-radius: 0 !important;
       }
   
-      &.box-body {
+      &__body {
         padding-top: 1rem;
         padding-bottom: 1rem;
         margin-bottom: 0;
       }
   
-      &.box-footer {
+      &__footer {
         background-color: transparent;
         border-width: 0;
         border-radius: 0 !important;
