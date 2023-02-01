@@ -40,6 +40,11 @@
     color: $text-color;
   }
 
+  code {
+    background-color: $color-orange-light;
+    color: $color-gray-light;
+  }
+
   h1,
   h2,
   h3,
@@ -103,7 +108,19 @@
     color: $color-inverted;
   }
 
-  .form-control {
+  .form__control {
+    border-color: $input-border-color;
+    background-color: $input-bg-color;
+    color: $input-text-color;
+
+    &:focus {
+      background-color: $input-bg-color-focus;
+      border-color: $input-border-color-focus;
+      box-shadow: none;
+    }
+  }
+
+  .form__inline_control {
     border-color: $input-border-color;
     background-color: $input-bg-color;
     color: $input-text-color;
@@ -118,17 +135,18 @@
   .box {
     border-color: $box-border-color;
     background-color: $box-bg-color;
+    color: $text-color;
   }
 
   .boxes {
     border-color: $box-border-color;
 
     > .box {
-      &.box-header {
+      &.box__header {
         background-color: $box-heading-bg-color;
       }
 
-      &.box-footer {
+      &.box__footer {
         background-color: $box-footer-bg-color;
       }
     }
@@ -139,20 +157,28 @@
 
     &.inverted {
       border-color: $color-inverted;
+
+      > .box {
+        color: $color-inverted;
+      }
     }
 
     &.secondary {
       border-width: 0;
 
       > .box {
-        &.box-header {
+        &.box__header {
           background-color: transparent;
         }
 
-        &.box-footer {
+        &.box__footer {
           background-color: transparent;
         }
       }
     }
+  }
+
+  .bg-transparent {
+    color: $color-white !important;
   }
 }
