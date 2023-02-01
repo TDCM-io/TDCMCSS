@@ -54,3 +54,12 @@ table {
   border-spacing: 0;
   border-collapse: collapse;
 }
+
+
+/**
+ * Basic styles for labels
+ */
+label {
+  display: inline-block;
+  margin-bottom: .25rem;
+}  
