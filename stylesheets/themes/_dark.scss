@@ -142,11 +142,11 @@
     border-color: $box-border-color;
 
     > .box {
-      &.box__header {
+      &.box_header {
         background-color: $box-heading-bg-color;
       }
 
-      &.box__footer {
+      &.box_footer {
         background-color: $box-footer-bg-color;
       }
     }
@@ -167,11 +167,11 @@
       border-width: 0;
 
       > .box {
-        &.box__header {
+        &.box_header {
           background-color: transparent;
         }
 
-        &.box__footer {
+        &.box_footer {
           background-color: transparent;
         }
       }

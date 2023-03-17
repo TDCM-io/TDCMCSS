@@ -32,16 +32,16 @@
         border-bottom-right-radius: $boxes-box-border-radius !important;
       }
   
-      &__header {
+      &_header {
         background-color: $box-heading-bg-color;
       }
   
-      &__body {
+      &_body {
         padding-top: 1rem;
         padding-bottom: 1rem;
       }
   
-      &__footer {
+      &_footer {
         background-color: $box-footer-bg-color;
       }
     }
@@ -82,20 +82,20 @@
       border-width: 1px;
       border-radius: $box-border-radius;
   
-      &__header {
+      &_header {
         background-color: transparent;
         margin-bottom: 0;
         border-width: 0;
         border-radius: 0 !important;
       }
   
-      &__body {
+      &_body {
         padding-top: 1rem;
         padding-bottom: 1rem;
         margin-bottom: 0;
       }
   
-      &__footer {
+      &_footer {
         background-color: transparent;
         border-width: 0;
         border-radius: 0 !important;
