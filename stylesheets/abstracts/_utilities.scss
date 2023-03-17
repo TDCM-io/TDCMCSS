@@ -37,7 +37,7 @@ $utilities: map.merge(
   $utilities
 );
 
-/// Boder utilities
+/// Border utilities
 $utilities: map.merge(
   (
     'border': (
@@ -521,7 +521,12 @@ $utilities: map.merge(
       property: text-overflow,
       class: text,
       values: ellipsis
-    )
+    ),
+    'word-spacing': (
+      property: word-spacing,
+      class: word-spacing,
+      values: unset normal
+    ),
   ),
   $utilities
 );
