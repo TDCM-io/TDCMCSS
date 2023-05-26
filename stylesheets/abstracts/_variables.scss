@@ -124,7 +124,9 @@ $spacers: (
   16: $spacer,
   24: $spacer * 1.5,
   32: $spacer * 2,
-  48: $spacer * 3
+  48: $spacer * 3,
+  64: $spacer * 4,
+  auto: auto
 ) !default;
 $spacers-extend: () !default;
 $spacers: map.merge($spacers, $spacers-extend);
@@ -194,6 +196,11 @@ $font-sizes: (
   20: 1.25rem,
   24: 1.5rem,
   32: 2rem,
+  40: 2.5rem,
+  48: 3rem,
+  64: 4rem,
+  72: 4.5rem,
+  96: 6rem
 ) !default;
 
 // Sizing
@@ -202,11 +209,13 @@ $sizes: (
   0: 0,
   20: 20%,
   25: 25%,
+  33: 33%,
   40: 40%,
   50: 50%,
   60: 60%,
   75: 75%,
   80: 80%,
+  90: 90%,
   full: 100%,
   auto: auto
 ) !default;

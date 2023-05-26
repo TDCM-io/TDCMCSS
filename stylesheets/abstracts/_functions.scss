@@ -33,6 +33,19 @@
 }
 
 
+/// Returns REM value based on a given pixel size
+/// @param {Length} $pxsize - pixel size
+/// @return {Length} /
+@function rem($pxsize) {
+  @if math.is-unitless($pxsize) {
+    @return math.div($pxsize, 16) + rem;
+  }
+  @else {
+    @error 'Expected unitless value, but got #{$pxsize}. Don\'t use units when calling the `rem` function.';
+  }
+}
+
+
 /// Returns EM value based on a given pixel size
 /// @param {Length} $pxsize - pixel size
 /// @return {Length} /

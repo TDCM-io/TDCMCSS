@@ -171,7 +171,7 @@ $utilities: map.merge(
     'display': (
       property: display,
       class: d,
-      values: block inline-block inline flex inline-flex none
+      values: block inline-block inline flex inline-flex grid inline-grid none
     )
   ),
   $utilities
