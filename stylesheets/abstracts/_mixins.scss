@@ -102,59 +102,59 @@ ORDER: BASE + Typography > general layout + grid > page layout > components
 
 @mixin respond($breakpoint) {
   @if $breakpoint == phone-vsmall {
-    @media only screen and (max-width: em(390)) {
+    @media only screen and (max-width: 320px) {
       @content;
     }
-
-    //390px
+    //320px
   }
 
   @if $breakpoint == phone-small {
-    @media only screen and (max-width: em(450)) {
+    @media only screen and (max-width: 480px) {
       @content;
     }
-
-    //450px
+    //480px
   }
 
   @if $breakpoint == phone {
-    @media only screen and (max-width: em(600)) {
+    @media only screen and (max-width: 576px) {
       @content;
     }
-
-    //600px
+    //576px
   }
 
   @if $breakpoint == tab-port {
-    @media only screen and (max-width: em(900)) {
+    @media only screen and (max-width: 768px) {
       @content;
     }
-
-    //900px
+    //768px
   }
 
   @if $breakpoint == tab-land {
-    @media only screen and (max-width: em(1200)) {
+    @media only screen and (max-width: 992px) {
       @content;
     }
-
-    //1200px
+    //992px
   }
 
   @if $breakpoint == laptop {
-    @media only screen and (max-width: em(1368)) {
+    @media only screen and (max-width: 1200px) {
       @content;
     }
+    //1200px
+  }
 
-    //1368px
+  @if $breakpoint == desktop {
+    @media only screen and (min-width: 1201px) {
+      @content;
+    }
+    //1201px
   }
 
   @if $breakpoint == big-desktop {
-    @media only screen and (min-width: em(1800)) {
+    @media only screen and (min-width: 1440px) {
       @content;
     }
-
-    //1800px
+    //1440px
   }
 }
 
