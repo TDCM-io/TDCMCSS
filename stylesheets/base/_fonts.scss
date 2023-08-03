@@ -3,11 +3,11 @@
 // -----------------------------------------------------------------------------
 
 // local font-face declarations
-@include font-face("Open Sans", "../fonts/Open_Sans/static/OpenSans-Regular");
+@include font-face("Open Sans", "../fonts/Open_Sans/static/OpenSans-Regular", 400);
 
 // url font-face declarations
 @import url('https://fonts.googleapis.com/css2?family=Roboto');
-@include font-face("Roboto", "Roboto");
+@include font-face("Roboto", "Roboto", 400);
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Vithkuqi&display=swap');
-@include font-face("Noto Serif Vithkuqi", "Noto Serif Vithkuqi")
+@include font-face("Noto Serif Vithkuqi", "Noto Serif Vithkuqi", 400)
