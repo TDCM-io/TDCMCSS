@@ -1,13 +1,17 @@
 $text-color:               hsl(0, 0%, 13%) !default;
-$text-color-tdcm:          hsl(216, 17%, 32%) !default;
+$text-color-tdcm:          hsl(223, 40%, 22%) !default;
 
-$color-primary-light:      hsl(196, 79%, 71%) !default;
-$color-primary:            hsl(196, 79%, 61%) !default;
-$color-primary-dark:       hsl(196, 79%, 51%) !default;
+$color-primary-light:      hsl(248, 81%, 68%) !default;
+$color-primary:            hsl(248, 81%, 58%) !default;
+$color-primary-dark:       hsl(250, 51%, 30%) !default;
 
-$color-secondary-light:    hsl(216, 17%, 42%) !default;
-$color-secondary:          hsl(216, 17%, 32%) !default;
-$color-secondary-dark:     hsl(216, 17%, 22%) !default;
+$color-secondary-light:    hsl(200, 100%, 85%) !default;
+$color-secondary:          hsl(200, 100%, 74%) !default;
+$color-secondary-dark:     hsl(200, 100%, 60%) !default;
+
+$color-tertiary-light:     hsl(324, 100%, 85%) !default;
+$color-tertiary:           hsl(324, 100%, 67%) !default;
+$color-tertiary-dark:      hsl(324, 100%, 50%) !default;
 
 $color-default:            hsl(202, 15%, 75%) !default;
 $color-info:               hsl(194, 63%, 56%) !default;
@@ -65,6 +69,8 @@ $color-pink:               hsl(330, 100%, 50%) !default;
 $status-color-map: (
   default:  $color-default,
   primary:  $color-primary,
+  secondary:$color-secondary,
+  tertiary: $color-tertiary,
   info:     $color-info,
   success:  $color-success,
   danger:   $color-danger,
