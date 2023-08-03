@@ -48,27 +48,31 @@
   left: 0;
 }
 
-/// A font-face mixin that allows for multiple file formats
+/// A font-face mixin that allows for multiple file formats or external URLs
 /// @param {String} $font-family - The name of the font
-/// @param {String} $font-path - The path to the font file
+/// @param {String} $font-path - The path to the font file or the URL of the font
 /// @param {Number} $font-weight - The weight of the font
-/// @param {List} $file-formats - The file formats to include
+/// @param {List} $file-formats - The file formats to include for local files (adjust based on Google Fonts' recommendation)
 /// @link https://css-tricks.com/snippets/css/using-font-face/
-@mixin font-face($font-family, $font-path, $font-weight, $file-formats: woff2 woff ttf eot svg) {
-  @font-face {
-    font-family: $font-family;
-    src: url("#{$font-path}.#{$file-formats[0]}") format("#{$file-formats[0]}");
-    font-weight: $font-weight;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  @each $format in $file-formats {
-    @if ($format !=$file-formats(0)) {
+@mixin font-face($font-family, $font-path) {
+  $file-formats: (woff2: "woff2", woff: "woff", ttf: "truetype", eot: "embedded-opentype", svg: "svg");
+  @if str-slice($font-path, 1, 4) == "http" or str-slice($font-path, 1, 3) == "www" {
+    // If $font-path starts with "http" or "www", it is an external URL
+    @font-face {
+      font-family: $font-family;
+      src: url("#{$font-path}");
+      font-weight: 400t;
+      font-style: normal;
+      font-display: swap;
+    }
+  } @else {
+    // Otherwise, it's a local file path, generate the font-face rules for different formats
+    $local-font-path: $font-path;
+    @each $format, $format-name in $file-formats {
       @font-face {
         font-family: $font-family;
-        src: url("#{$font-path}.#{$format}") format("#{$format}");
-        font-weight: $font-weight;
+        src: url("#{$local-font-path}.#{$format}") format("#{$format-name}");
+        font-weight: 400;
         font-style: normal;
         font-display: swap;
       }
